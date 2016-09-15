@@ -1,5 +1,9 @@
+[NOTE: The location for this repo has changed from https://github.com/<b>affandar</b>/durabletask to https://github.com/<b>Azure</b>/durabletask. Please update your bookmarks.]
+
 Durable Task Framework
 ======================
+
+[![Join the chat at https://gitter.im/affandar/durabletask](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/affandar/durabletask?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
 
 This framework allows users to write long running persistent workflows in C# using the async/await capabilities.
 
@@ -37,6 +41,6 @@ The community is welcome to take a stab and send pull requests on these items (a
   
 <b>Forum</b>
 
-Please post feedback/comments at:
-https://groups.google.com/forum/#!forum/durabletask
+Please post feedback/comments at gitter.
 
+[![Join the chat at https://gitter.im/affandar/durabletask](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/affandar/durabletask?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
