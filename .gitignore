@@ -10,9 +10,10 @@
 *.user
 bin/
 obj/
+pkg/
 packages/
 TestResults/
-sign.snk
+Debug/
 
 # Packages #
 ############
@@ -29,6 +30,7 @@ sign.snk
 
 # Logs and databases #
 ######################
+.vs/
 *.log
 *.sql
 *.sqlite
@@ -43,3 +45,8 @@ sign.snk
 Icon?
 ehthumbs.db
 Thumbs.db
+.vs/
+
+# Publish Web output #
+######################
+PublishProfiles/

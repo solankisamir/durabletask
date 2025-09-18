@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),DurableTask.sln))\tools\DurableTask.props" />
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<!-- Override the centrally managed version -->
+	<PackageReference Include="Microsoft.NET.Test.Sdk" VersionOverride="15.0.0" />
+	<PackageReference Include="MSTest.TestAdapter" VersionOverride="1.4.0" />
+	<PackageReference Include="MSTest.TestFramework" VersionOverride="1.4.0" />
+    <PackageReference Include="System.Collections.Immutable" VersionOverride="1.5.0" />
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" />
+    <PackageReference Include="Moq" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DurableTask.Core\DurableTask.Core.csproj" />
+    <ProjectReference Include="..\..\src\DurableTask.AzureServiceFabric\DurableTask.AzureServiceFabric.csproj" />
+    <ProjectReference Include="..\DurableTask.Test.Orchestrations\DurableTask.Test.Orchestrations.csproj" />
+    <ProjectReference Include="..\TestFabricApplication\TestApplication.Common\TestApplication.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+
+</Project>

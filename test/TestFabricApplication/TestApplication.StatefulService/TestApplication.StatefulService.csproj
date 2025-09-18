@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net472</TargetFrameworks>
+	<TargetFramework>net472</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Owin" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\DurableTask.Core\DurableTask.Core.csproj" />
+    <ProjectReference Include="..\..\..\src\DurableTask.AzureServiceFabric\DurableTask.AzureServiceFabric.csproj" />
+    <ProjectReference Include="..\..\DurableTask.Test.Orchestrations\DurableTask.Test.Orchestrations.csproj" />
+    <ProjectReference Include="..\TestApplication.Common\TestApplication.Common.csproj" />
+  </ItemGroup>
+
+</Project>
