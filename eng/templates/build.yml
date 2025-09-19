@@ -55,14 +55,14 @@ jobs:
           configuration: Release
           msbuildArgs: /p:FileVersionRevision=$(Build.BuildId) /p:ContinuousIntegrationBuild=true
 
-      # - task: VSBuild@1
-      #   displayName: 'Build (ServiceBus)'
-      #   inputs:
-      #     solution: 'src/DurableTask.ServiceBus/DurableTask.ServiceBus.csproj'
-      #     vsVersion: '16.0'
-      #     logFileVerbosity: minimal
-      #     configuration: Release
-      #     msbuildArgs: /p:FileVersionRevision=$(Build.BuildId) /p:ContinuousIntegrationBuild=true
+      - task: VSBuild@1
+        displayName: 'Build (ServiceBus)'
+        inputs:
+          solution: 'src/DurableTask.ServiceBus/DurableTask.ServiceBus.csproj'
+          vsVersion: '16.0'
+          logFileVerbosity: minimal
+          configuration: Release
+          msbuildArgs: /p:FileVersionRevision=$(Build.BuildId) /p:ContinuousIntegrationBuild=true
 
       - task: VSBuild@1
         displayName: 'Build (AzureServiceFabric)'
@@ -85,8 +85,8 @@ jobs:
           displayName: Sign assemblies
           folderPath: src
           pattern: DurableTask.*.dll
-          signType: dll
-      
+          signType: dll 
+
       # need to add all the code-signing stuff + SBOM
       - task: DotNetCoreCLI@2
         displayName: Generate nuget packages
@@ -118,6 +118,16 @@ jobs:
           packDirectory: $(build.artifactStagingDirectory)
           packagesToPack: 'src/DurableTask.AzureServiceFabric/DurableTask.AzureServiceFabric.csproj'
           buildProperties: 'Platform=x64'
+
+      - task: DotNetCoreCLI@2
+        displayName: Generate nuget packages
+        inputs:
+          command: pack
+          verbosityPack: Minimal
+          configuration: Release
+          nobuild: true
+          packDirectory: $(build.artifactStagingDirectory)
+          packagesToPack: 'src/DurableTask.ServiceBus/DurableTask.ServiceBus.csproj'
 
       - template: ci/sign-files.yml@eng
         parameters:
